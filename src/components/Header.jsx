@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  padding: 2rem;
+  padding: 1rem;
   gap: 0.75rem;
 `
 

@@ -7,6 +7,18 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 20px;
+`
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+`
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 10px;
 `
 const StyledInput = styled.input`
@@ -29,7 +41,7 @@ const StyledDatePicker = styled(DatePicker)`
   padding: 10px;
   border-radius: 5px;
   border-width: thin;
-  width: 92%;
+  width: 89%;
 `
 const StyledFieldset = styled.fieldset`
   display: flex;
@@ -62,38 +74,42 @@ function Form() {
 
   return (
     <StyledForm onSubmit={createEmployee}>
-      <label>First Name</label>
-      <StyledInput ref={firstName} type="text" id="firstName" required />
-      <label>Last Name</label>
-      <StyledInput ref={LastName} type="text" id="lastName" required />
-      <label>Birthday</label>
-      <StyledDatePicker
-        showMonthDropdown
-        showYearDropdown
-        selected={birthday}
-        onChange={(date) => setBirthday(date)}
-        required
-      />
-      <label>Start date</label>
-      <StyledDatePicker
-        showMonthDropdown
-        showYearDropdown
-        todayButton="Today"
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        required
-      />
-      <StyledFieldset>
-        <legend>Address</legend>
-        <label htmlFor="street">Street</label>
-        <StyledInput ref={street} id="street" type="text" required />
-        <label htmlFor="city">City</label>
-        <StyledInput ref={city} id="city" type="text" required />
-        <label htmlFor="state">State</label>
-        <StyledSelect name="state" id="state" required></StyledSelect>
-        <label htmlFor="zip-code">Zip Code</label>
-        <StyledInput ref={zipCode} id="zip-code" type="number" required />
-      </StyledFieldset>
+      <Row>
+        <Column>
+          <label>First Name</label>
+          <StyledInput ref={firstName} type="text" id="firstName" required />
+          <label>Last Name</label>
+          <StyledInput ref={LastName} type="text" id="lastName" required />
+          <label>Birthday</label>
+          <StyledDatePicker
+            showMonthDropdown
+            showYearDropdown
+            selected={birthday}
+            onChange={(date) => setBirthday(date)}
+            required
+          />
+          <label>Start date</label>
+          <StyledDatePicker
+            showMonthDropdown
+            showYearDropdown
+            todayButton="Today"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            required
+          />
+        </Column>
+        <StyledFieldset>
+          <legend>Address</legend>
+          <label htmlFor="street">Street</label>
+          <StyledInput ref={street} id="street" type="text" required />
+          <label htmlFor="city">City</label>
+          <StyledInput ref={city} id="city" type="text" required />
+          <label htmlFor="state">State</label>
+          <StyledSelect name="state" id="state" required></StyledSelect>
+          <label htmlFor="zip-code">Zip Code</label>
+          <StyledInput ref={zipCode} id="zip-code" type="number" required />
+        </StyledFieldset>
+      </Row>
       <SubmitButton type="submit" value="Save" />
     </StyledForm>
   )

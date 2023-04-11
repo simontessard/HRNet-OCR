@@ -54,6 +54,8 @@ function Form() {
     e.preventDefault()
   }
 
+  console.log(startDate)
+
   return (
     <StyledForm onSubmit={createEmployee}>
       <label>First Name</label>
@@ -79,13 +81,13 @@ function Form() {
       />
       <StyledFieldset>
         <legend>Address</legend>
-        <label for="street">Street</label>
+        <label htmlFor="street">Street</label>
         <StyledInput id="street" type="text" />
-        <label for="city">City</label>
+        <label htmlFor="city">City</label>
         <StyledInput id="city" type="text" />
-        <label for="state">State</label>
+        <label htmlFor="state">State</label>
         <StyledSelect name="state" id="state"></StyledSelect>
-        <label for="zip-code">Zip Code</label>
+        <label htmlFor="zip-code">Zip Code</label>
         <StyledInput id="zip-code" type="number" />
       </StyledFieldset>
       <SubmitButton type="submit" value="Save" />

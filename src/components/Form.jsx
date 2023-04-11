@@ -50,8 +50,12 @@ function Form() {
   const [birthday, setBirthday] = useState(new Date())
   const [startDate, setStartDate] = useState(new Date())
 
+  const createEmployee = (e) => {
+    e.preventDefault()
+  }
+
   return (
-    <StyledForm>
+    <StyledForm onSubmit={createEmployee}>
       <label>First Name</label>
       <StyledInput type="text" name="firstName" />
       <label>Last Name</label>

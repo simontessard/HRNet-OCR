@@ -18,6 +18,7 @@ const SubmitButton = styled.input`
   padding: 10px;
   cursor: pointer;
   border: 0;
+  margin-top: 1rem;
 `
 
 function Form() {

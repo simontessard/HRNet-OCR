@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Header from './components/Header'
+import Routing from './Router'
 import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <Header />
+    <Routing />
   </React.StrictMode>
 )

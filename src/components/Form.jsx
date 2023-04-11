@@ -73,6 +73,7 @@ function Form() {
   }))
 
   const departmentOptions = departments.map((department) => ({
+    label: department,
     value: department,
   }))
 

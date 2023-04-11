@@ -65,6 +65,7 @@ function Form() {
   const city = useRef()
   const [state, setState] = useState(null)
   const zipCode = useRef()
+  const [department, setDepartment] = useState(null)
 
   const stateOptions = states.map((state) => ({
     label: state.name,
@@ -72,7 +73,6 @@ function Form() {
   }))
 
   const departmentOptions = departments.map((department) => ({
-    label: department,
     value: department,
   }))
 
@@ -113,11 +113,19 @@ function Form() {
           <label htmlFor="city">City</label>
           <StyledInput ref={city} id="city" type="text" required />
           <label htmlFor="state">State</label>
-          <Dropdown options={stateOptions} value={stateOptions[0]} />
+          <Dropdown
+            options={stateOptions}
+            value={stateOptions[0]}
+            onChange={(value) => setState(value)}
+          />
           <label htmlFor="zip-code">Zip Code</label>
           <StyledInput ref={zipCode} id="zip-code" type="number" required />
           <label htmlFor="department">Department</label>
-          <Dropdown options={departmentOptions} value={departmentOptions[0]} />
+          <Dropdown
+            options={departmentOptions}
+            value={departmentOptions[0]}
+            onChange={(value) => setDepartment(value)}
+          />
         </StyledFieldset>
       </Row>
       <SubmitButton type="submit" value="Save" />

@@ -3,6 +3,10 @@ import React, { useState, useRef } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+import { states, departments } from '../data/index.js'
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -52,12 +56,6 @@ const StyledFieldset = styled.fieldset`
   gap: 10px;
 `
 
-const StyledSelect = styled.select`
-  border-radius: 5px;
-  padding: 10px;
-  border-width: thin;
-`
-
 function Form() {
   const firstName = useRef()
   const LastName = useRef()
@@ -67,6 +65,16 @@ function Form() {
   const city = useRef()
   const [state, setState] = useState(null)
   const zipCode = useRef()
+
+  const stateOptions = states.map((state) => ({
+    label: state.name,
+    value: state.abbreviation,
+  }))
+
+  const departmentOptions = departments.map((department) => ({
+    label: department,
+    value: department,
+  }))
 
   const createEmployee = (e) => {
     e.preventDefault()
@@ -105,9 +113,11 @@ function Form() {
           <label htmlFor="city">City</label>
           <StyledInput ref={city} id="city" type="text" required />
           <label htmlFor="state">State</label>
-          <StyledSelect name="state" id="state" required></StyledSelect>
+          <Dropdown options={stateOptions} value={stateOptions[0]} />
           <label htmlFor="zip-code">Zip Code</label>
           <StyledInput ref={zipCode} id="zip-code" type="number" required />
+          <label htmlFor="department">Department</label>
+          <Dropdown options={departmentOptions} value={departmentOptions[0]} />
         </StyledFieldset>
       </Row>
       <SubmitButton type="submit" value="Save" />

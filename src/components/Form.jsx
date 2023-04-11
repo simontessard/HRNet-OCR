@@ -29,6 +29,21 @@ const StyledDatePicker = styled(DatePicker)`
   padding: 10px;
   border-radius: 5px;
   border-width: thin;
+  width: 92%;
+`
+const StyledFieldset = styled.fieldset`
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 30px;
+  margin-top: 0.5rem;
+  gap: 10px;
+`
+
+const StyledSelect = styled.select`
+  border-radius: 5px;
+  padding: 10px;
+  border-width: thin;
 `
 
 function Form() {
@@ -58,6 +73,17 @@ function Form() {
         onChange={(date) => setStartDate(date)}
         required
       />
+      <StyledFieldset>
+        <legend>Address</legend>
+        <label for="street">Street</label>
+        <StyledInput id="street" type="text" />
+        <label for="city">City</label>
+        <StyledInput id="city" type="text" />
+        <label for="state">State</label>
+        <StyledSelect name="state" id="state"></StyledSelect>
+        <label for="zip-code">Zip Code</label>
+        <StyledInput id="zip-code" type="number" />
+      </StyledFieldset>
       <SubmitButton type="submit" value="Save" />
     </StyledForm>
   )

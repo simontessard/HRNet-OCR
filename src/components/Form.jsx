@@ -36,6 +36,7 @@ const SubmitButton = styled.input`
   color: white;
   border-radius: 5px;
   padding: 10px;
+  padding-inline: 40px;
   cursor: pointer;
   border: 0;
   margin-top: 1rem;
@@ -54,6 +55,17 @@ const StyledFieldset = styled.fieldset`
   padding: 30px;
   margin-top: 0.5rem;
   gap: 10px;
+`
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex: 100%;
+`
+
+const ResetButton = styled(SubmitButton)`
+  background-image: linear-gradient(to right, red 0%, red 51%, red 100%);
 `
 
 function Form() {
@@ -81,8 +93,12 @@ function Form() {
     e.preventDefault()
   }
 
+  const handleFormReset = (e) => {
+    e.target.reset()
+  }
+
   return (
-    <StyledForm onSubmit={createEmployee}>
+    <StyledForm onSubmit={createEmployee} onReset={handleFormReset}>
       <Row>
         <Column>
           <label>First Name</label>
@@ -129,7 +145,9 @@ function Form() {
           />
         </StyledFieldset>
       </Row>
-      <SubmitButton type="submit" value="Save" />
+      <ButtonsContainer>
+        <ResetButton type="reset" value="Reset" /> <SubmitButton type="submit" value="Save" />
+      </ButtonsContainer>
     </StyledForm>
   )
 }

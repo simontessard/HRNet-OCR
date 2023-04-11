@@ -54,8 +54,6 @@ function Form() {
     e.preventDefault()
   }
 
-  console.log(startDate)
-
   return (
     <StyledForm onSubmit={createEmployee}>
       <label>First Name</label>

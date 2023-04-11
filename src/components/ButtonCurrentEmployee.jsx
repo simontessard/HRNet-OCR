@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { FaEye } from 'react-icons/fa'
 
+import { NavLink } from 'react-router-dom'
+
 const StyledButton = styled.button`
   background-color: #ffffff;
   border: 0;
@@ -24,10 +26,12 @@ const StyledButton = styled.button`
   touch-action: manipulation;
 `
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `
 
 const StyledParagraph = styled.p`
@@ -38,7 +42,7 @@ const StyledParagraph = styled.p`
 function ButtonCurrentEmployee() {
   return (
     <StyledButton>
-      <StyledContainer>
+      <StyledContainer to="/employees">
         <FaEye />
         <StyledParagraph> Current Employees</StyledParagraph>
       </StyledContainer>

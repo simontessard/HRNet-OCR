@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -47,8 +47,14 @@ const StyledSelect = styled.select`
 `
 
 function Form() {
-  const [birthday, setBirthday] = useState(new Date())
-  const [startDate, setStartDate] = useState(new Date())
+  const firstName = useRef()
+  const LastName = useRef()
+  const [birthday, setBirthday] = useState(null)
+  const [startDate, setStartDate] = useState(null)
+  const street = useRef()
+  const city = useRef()
+  const [state, setState] = useState(null)
+  const zipCode = useRef()
 
   const createEmployee = (e) => {
     e.preventDefault()
@@ -57,9 +63,9 @@ function Form() {
   return (
     <StyledForm onSubmit={createEmployee}>
       <label>First Name</label>
-      <StyledInput type="text" name="firstName" />
+      <StyledInput ref={firstName} type="text" id="firstName" required />
       <label>Last Name</label>
-      <StyledInput type="text" name="lastName" />
+      <StyledInput ref={LastName} type="text" id="lastName" required />
       <label>Birthday</label>
       <StyledDatePicker
         showMonthDropdown
@@ -80,13 +86,13 @@ function Form() {
       <StyledFieldset>
         <legend>Address</legend>
         <label htmlFor="street">Street</label>
-        <StyledInput id="street" type="text" />
+        <StyledInput ref={street} id="street" type="text" required />
         <label htmlFor="city">City</label>
-        <StyledInput id="city" type="text" />
+        <StyledInput ref={city} id="city" type="text" required />
         <label htmlFor="state">State</label>
-        <StyledSelect name="state" id="state"></StyledSelect>
+        <StyledSelect name="state" id="state" required></StyledSelect>
         <label htmlFor="zip-code">Zip Code</label>
-        <StyledInput id="zip-code" type="number" />
+        <StyledInput ref={zipCode} id="zip-code" type="number" required />
       </StyledFieldset>
       <SubmitButton type="submit" value="Save" />
     </StyledForm>

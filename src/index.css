@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Tisa';
+    src: url(assets/fonts/Tisa\ Sans\ Pro\ Regular.ttf);
+}
+
 body {
-    font-family:'Franklin Gothic';
+    font-family:'Tisa';
 }

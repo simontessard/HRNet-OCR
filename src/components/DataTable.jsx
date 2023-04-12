@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
 import styled from 'styled-components'
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useSortBy } from 'react-table'
 
 const Styles = styled.div`
   padding: 3rem;
@@ -61,6 +61,7 @@ function Table({ columns, data }) {
       data,
       initialState: { pageIndex: 0 },
     },
+    useSortBy,
     usePagination
   )
 
@@ -72,7 +73,10 @@ function Table({ columns, data }) {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>{column.isSorted ? (column.isSortedDesc ? '🔽' : '🔼') : ''}</span>
+                </th>
               ))}
             </tr>
           ))}

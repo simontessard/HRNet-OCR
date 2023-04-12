@@ -9,6 +9,9 @@ import { states, departments } from '../data/index.js'
 
 import Employee from '../models/employee.js'
 
+import { useDispatch } from 'react-redux'
+import { addEmployee } from '../actions/employeeActions.js'
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -71,6 +74,8 @@ const ResetButton = styled(SubmitButton)`
 `
 
 function Form() {
+  const dispatch = useDispatch()
+
   const firstName = useRef()
   const LastName = useRef()
   const [birthday, setBirthday] = useState(null)
@@ -80,7 +85,6 @@ function Form() {
   const [state, setState] = useState(null)
   const zipCode = useRef()
   const [department, setDepartment] = useState(null)
-  const [employee, setEmployee] = useState(null)
 
   const stateOptions = states.map((state) => ({
     label: state.name,
@@ -94,17 +98,19 @@ function Form() {
 
   const createEmployee = (e) => {
     e.preventDefault()
-    setEmployee(
-      new Employee(
-        firstName.current.value,
-        LastName.current.value,
-        birthday.toLocaleDateString('en-US'),
-        startDate.toLocaleDateString('en-US'),
-        department.value,
-        street.current.value,
-        city.current.value,
-        state.label,
-        zipCode.current.value
+    dispatch(
+      addEmployee(
+        new Employee(
+          firstName.current.value,
+          LastName.current.value,
+          birthday.toLocaleDateString('en-US'),
+          startDate.toLocaleDateString('en-US'),
+          department.value,
+          street.current.value,
+          city.current.value,
+          state.label,
+          zipCode.current.value
+        )
       )
     )
   }

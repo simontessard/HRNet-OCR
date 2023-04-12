@@ -155,19 +155,11 @@ function Form() {
           <label htmlFor="city">City</label>
           <StyledInput ref={city} id="city" type="text" required />
           <label htmlFor="state">State</label>
-          <Dropdown
-            options={stateOptions}
-            value={stateOptions[0]}
-            onChange={(value) => setState(value)}
-          />
+          <Dropdown options={stateOptions} onChange={(value) => setState(value)} />
           <label htmlFor="zip-code">Zip Code</label>
           <StyledInput ref={zipCode} id="zip-code" type="number" required />
           <label htmlFor="department">Department</label>
-          <Dropdown
-            options={departmentOptions}
-            value={departmentOptions[0]}
-            onChange={(value) => setDepartment(value)}
-          />
+          <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />
         </StyledFieldset>
       </Row>
       <ButtonsContainer>

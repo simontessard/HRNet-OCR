@@ -1,5 +1,7 @@
+import DataTable from '../components/DataTable'
+
 function Employees() {
-  return <h2>Employees</h2>
+  return <DataTable />
 }
 
 export default Employees

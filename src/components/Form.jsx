@@ -7,6 +7,8 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import { states, departments } from '../data/index.js'
 
+import Employee from '../models/employee.js'
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -78,6 +80,7 @@ function Form() {
   const [state, setState] = useState(null)
   const zipCode = useRef()
   const [department, setDepartment] = useState(null)
+  const [employee, setEmployee] = useState(null)
 
   const stateOptions = states.map((state) => ({
     label: state.name,
@@ -91,6 +94,19 @@ function Form() {
 
   const createEmployee = (e) => {
     e.preventDefault()
+    setEmployee(
+      new Employee(
+        firstName.current.value,
+        LastName.current.value,
+        birthday.toLocaleDateString('en-US'),
+        startDate.toLocaleDateString('en-US'),
+        department.value,
+        street.current.value,
+        city.current.value,
+        state.label,
+        zipCode.current.value
+      )
+    )
   }
 
   const handleFormReset = (e) => {

@@ -16,55 +16,58 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
 `
+
 const Row = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  gap: 40px;
+  gap: 4rem;
 `
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
 `
+
 const StyledInput = styled.input`
   border-radius: 5px;
-  padding: 10px;
-  border-width: thin;
+  padding: 1rem;
+  border: thin solid #ccc;
 `
+
 const SubmitButton = styled.input`
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 5px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: #02aab0;
   color: white;
   border-radius: 5px;
-  padding: 15px;
-  padding-inline: 40px;
+  padding: 1.5rem 4rem;
   cursor: pointer;
-  border: 0;
+  border: none;
   margin-top: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
 `
 
 const StyledDatePicker = styled(DatePicker)`
-  padding: 10px;
+  padding: 1rem;
   border-radius: 5px;
-  border-width: thin;
+  border: thin solid #ccc;
   width: 89%;
 `
+
 const StyledFieldset = styled.fieldset`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  padding: 30px;
+  padding: 3rem;
   margin-top: 0.5rem;
-  gap: 10px;
+  gap: 1rem;
 `
 
 const ButtonsContainer = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 2rem;
   justify-content: center;
   flex: 100%;
 `

@@ -147,6 +147,8 @@ function Form() {
             onChange={(date) => setStartDate(date)}
             required
           />
+          <label htmlFor="department">Department</label>
+          <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />
         </Column>
         <StyledFieldset>
           <legend>Address</legend>
@@ -158,8 +160,6 @@ function Form() {
           <Dropdown options={stateOptions} onChange={(value) => setState(value)} />
           <label htmlFor="zip-code">Zip Code</label>
           <StyledInput ref={zipCode} id="zip-code" type="number" required />
-          <label htmlFor="department">Department</label>
-          <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />
         </StyledFieldset>
       </Row>
       <ButtonsContainer>

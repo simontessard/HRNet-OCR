@@ -36,11 +36,11 @@ const StyledInput = styled.input`
   border-width: thin;
 `
 const SubmitButton = styled.input`
-  background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
-  font-weight: 800;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 5px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: #02aab0;
   color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
   padding-inline: 40px;
   cursor: pointer;
   border: 0;
@@ -64,13 +64,13 @@ const StyledFieldset = styled.fieldset`
 
 const ButtonsContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   flex: 100%;
 `
 
 const ResetButton = styled(SubmitButton)`
-  background-image: linear-gradient(to right, red 0%, red 51%, red 100%);
+  background-color: red;
 `
 
 function Form() {

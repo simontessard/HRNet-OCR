@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
 import styled from 'styled-components'
-import { useTable, usePagination, useSortBy } from 'react-table'
+import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 
 const Styles = styled.div`
   padding: 3rem;
@@ -38,7 +38,13 @@ const Styles = styled.div`
   .pagination {
     padding: 1rem;
   }
+  .search-bar input {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
 `
+
 function Table({ columns, data }) {
   const {
     getTableProps,
@@ -54,13 +60,15 @@ function Table({ columns, data }) {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize },
+    state: { pageIndex, pageSize, globalFilter },
+    setGlobalFilter,
   } = useTable(
     {
       columns,
       data,
       initialState: { pageIndex: 0 },
     },
+    useGlobalFilter,
     useSortBy,
     usePagination
   )
@@ -68,6 +76,14 @@ function Table({ columns, data }) {
   // Render the UI for your table
   return (
     <>
+      <div className="search-bar">
+        <input
+          type="text"
+          value={globalFilter || ''}
+          onChange={(e) => setGlobalFilter(e.target.value)} // on définit la valeur du filtre global
+          placeholder="Search..."
+        />
+      </div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

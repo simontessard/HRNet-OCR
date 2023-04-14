@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { FaEye } from 'react-icons/fa'
+import { FaListAlt } from 'react-icons/fa'
 
 import { NavLink } from 'react-router-dom'
 
 const StyledButton = styled.button`
-  background-color: #ffffff;
+  background-color: #02aab0;
   border: 0;
   border-radius: 0.5rem;
   box-sizing: border-box;
@@ -28,7 +28,7 @@ const StyledContainer = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: white;
 `
 
 const StyledParagraph = styled.p`
@@ -40,7 +40,7 @@ function ButtonCurrentEmployee() {
   return (
     <StyledButton>
       <StyledContainer to="/employees">
-        <FaEye />
+        <FaListAlt />
         <StyledParagraph> Current Employees</StyledParagraph>
       </StyledContainer>
     </StyledButton>

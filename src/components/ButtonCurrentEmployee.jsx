@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   color: #111827;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25rem;
   padding: 0.75rem 1rem;
   text-align: center;
@@ -41,7 +41,7 @@ function ButtonCurrentEmployee() {
     <StyledButton>
       <StyledContainer to="/employees">
         <FaListAlt />
-        <StyledParagraph> Current Employees</StyledParagraph>
+        <StyledParagraph> List of registered employees </StyledParagraph>
       </StyledContainer>
     </StyledButton>
   )

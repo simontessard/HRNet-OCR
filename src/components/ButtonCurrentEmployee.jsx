@@ -9,8 +9,7 @@ const StyledButton = styled.button`
   border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-size: 1rem;
   line-height: 1.25rem;
   padding: 0.75rem 1rem;
   text-align: center;

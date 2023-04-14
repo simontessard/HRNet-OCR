@@ -7,8 +7,8 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  padding: 1rem;
+  font-size: 2.75rem;
+  padding: 0.5rem;
 `
 
 const StyledHFaUserTie = styled(FaUserTie)`

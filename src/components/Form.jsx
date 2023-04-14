@@ -39,7 +39,7 @@ const StyledInput = styled.input`
 `
 
 const SubmitButton = styled.input`
-  background-color: #02aab0;
+  background-color: green;
   color: white;
   border-radius: 5px;
   padding: 1.5rem 4rem;

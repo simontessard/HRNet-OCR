@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -88,14 +88,14 @@ const ResetButton = styled(SubmitButton)`
 function Form() {
   const dispatch = useDispatch()
 
-  const firstName = useRef()
-  const LastName = useRef()
+  const firstName = useRef(null)
+  const LastName = useRef(null)
   const [birthday, setBirthday] = useState(null)
   const [startDate, setStartDate] = useState(null)
-  const street = useRef()
-  const city = useRef()
+  const street = useRef(null)
+  const city = useRef(null)
   const [state, setState] = useState(null)
-  const zipCode = useRef()
+  const zipCode = useRef(null)
   const [department, setDepartment] = useState(null)
 
   const [openModal, setOpenModal] = useState(false)
@@ -138,7 +138,7 @@ function Form() {
     <StyledForm onSubmit={createEmployee} onReset={handleFormReset}>
       <Row>
         <Modal
-          children={<p>Employee M. {LastName.current.value} was created !</p>}
+          children={openModal ? <p>Employee M. {LastName.current.value} was created !</p> : null}
           titleText="Successful creation"
           isOpen={openModal}
           style={{ title: { fontSize: '20px' } }}

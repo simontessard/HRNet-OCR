@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 
+import { TbCircleArrowDownFilled, TbCircleArrowUpFilled } from 'react-icons/tb'
+
 const Styles = styled.div`
   padding: 3rem;
   display: flex;
@@ -43,6 +45,12 @@ const Styles = styled.div`
     padding: 0.5rem;
     border-radius: 5px;
   }
+  .arrowIcon {
+    margin-left: 0.5rem;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+  }
 `
 
 function Table({ columns, data }) {
@@ -81,7 +89,7 @@ function Table({ columns, data }) {
           type="text"
           value={globalFilter || ''}
           onChange={(e) => setGlobalFilter(e.target.value)} // on définit la valeur du filtre global
-          placeholder="Search..."
+          placeholder=" Search..."
         />
       </div>
       <table {...getTableProps()}>
@@ -91,7 +99,17 @@ function Table({ columns, data }) {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
-                  <span>{column.isSorted ? (column.isSortedDesc ? '🔽' : '🔼') : ''}</span>
+                  <span>
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <TbCircleArrowDownFilled className="arrowIcon" />
+                      ) : (
+                        <TbCircleArrowUpFilled className="arrowIcon" />
+                      )
+                    ) : (
+                      ''
+                    )}
+                  </span>
                 </th>
               ))}
             </tr>

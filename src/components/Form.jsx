@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -11,6 +11,8 @@ import Employee from '../models/employee.js'
 
 import { useDispatch } from 'react-redux'
 import { addEmployee } from '../actions/employeeActions.js'
+
+import { Modal } from 'modal-dialog-library'
 
 const StyledForm = styled.form`
   display: flex;
@@ -26,6 +28,10 @@ const Row = styled.div`
   display: flex;
   justify-content: center;
   gap: 4rem;
+
+  .modal-overlay {
+    z-index: 10;
+  }
 `
 
 const Column = styled.div`
@@ -92,6 +98,8 @@ function Form() {
   const zipCode = useRef()
   const [department, setDepartment] = useState(null)
 
+  const [openModal, setOpenModal] = useState(false)
+
   const stateOptions = states.map((state) => ({
     label: state.name,
     value: state.abbreviation,
@@ -119,6 +127,7 @@ function Form() {
         )
       )
     )
+    setOpenModal(!openModal)
   }
 
   const handleFormReset = (e) => {
@@ -128,6 +137,14 @@ function Form() {
   return (
     <StyledForm onSubmit={createEmployee} onReset={handleFormReset}>
       <Row>
+        {openModal && (
+          <Modal
+            children={<p>Employee M. {LastName.current.value} was created</p>}
+            titleText="Successful creation"
+            isOpen={true}
+            style={{ title: { fontSize: '20px' } }}
+          />
+        )}
         <Column>
           <label>First Name</label>
           <StyledInput ref={firstName} type="text" id="firstName" required />

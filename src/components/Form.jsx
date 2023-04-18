@@ -137,14 +137,12 @@ function Form() {
   return (
     <StyledForm onSubmit={createEmployee} onReset={handleFormReset}>
       <Row>
-        {openModal && (
-          <Modal
-            children={<p>Employee M. {LastName.current.value} was created</p>}
-            titleText="Successful creation"
-            isOpen={true}
-            style={{ title: { fontSize: '20px' } }}
-          />
-        )}
+        <Modal
+          children={<p>Employee M. {LastName.current.value} was created !</p>}
+          titleText="Successful creation"
+          isOpen={openModal}
+          style={{ title: { fontSize: '20px' } }}
+        />
         <Column>
           <label>First Name</label>
           <StyledInput ref={firstName} type="text" id="firstName" required />

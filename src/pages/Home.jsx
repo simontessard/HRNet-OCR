@@ -11,18 +11,11 @@ const Container = styled.main`
   gap: 40px;
 `
 
-const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
 function Home() {
   return (
     <Container>
       <ButtonCurrentEmployee />
-      <FormContainer>
-        <Form />
-      </FormContainer>
+      <Form />
     </Container>
   )
 }

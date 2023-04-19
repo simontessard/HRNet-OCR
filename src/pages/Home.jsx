@@ -1,4 +1,4 @@
-import ButtonCurrentEmployee from '../components/ButtonCurrentEmployee'
+import ButtonCurrentEmployee from '../components/ButtonCurrentEmployee/ButtonCurrentEmployee'
 import Form from '../components/Form'
 
 import styled from 'styled-components'

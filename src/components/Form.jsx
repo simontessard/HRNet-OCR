@@ -99,7 +99,6 @@ function Form() {
   const [department, setDepartment] = useState(null)
 
   const [openModal, setOpenModal] = useState(false)
-  console.log(openModal)
 
   const stateOptions = states.map((state) => ({
     label: state.name,
@@ -141,11 +140,17 @@ function Form() {
     <StyledForm onSubmit={createEmployee} onReset={handleFormReset}>
       <Row>
         <Modal
-          children={openModal ? <p>Employee M. {LastName.current.value} was created !</p> : null}
-          titleText="SUCCESS"
           isOpen={openModal}
-          style={{ title: { fontSize: '20px' } }}
-        />
+          titleText="SUCCESS"
+          style={{ title: { fontSize: '20px' }, closeContainer: { display: 'none' } }}
+        >
+          {openModal && (
+            <>
+              <p>Employee M. {LastName.current.value} was created !</p>
+              <button onClick={() => setOpenModal(false)}>Close</button>
+            </>
+          )}
+        </Modal>
         <Column>
           <label>First Name</label>
           <StyledInput ref={firstName} type="text" id="firstName" required />

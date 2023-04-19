@@ -1,5 +1,5 @@
 import ButtonCurrentEmployee from '../components/ButtonCurrentEmployee/ButtonCurrentEmployee'
-import Form from '../components/Form'
+import Form from '../components/Form/Form'
 
 import styled from 'styled-components'
 

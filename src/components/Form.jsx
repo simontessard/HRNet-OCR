@@ -139,7 +139,7 @@ function Form() {
       <Row>
         <Modal
           children={openModal ? <p>Employee M. {LastName.current.value} was created !</p> : null}
-          titleText="Successful creation"
+          titleText="SUCCESS"
           isOpen={openModal}
           style={{ title: { fontSize: '20px' } }}
         />

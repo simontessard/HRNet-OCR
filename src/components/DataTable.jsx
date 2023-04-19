@@ -229,10 +229,7 @@ function DataTable() {
     []
   )
   const employeesData = useSelector((state) => state.employees)
-  console.log(employeesData)
-
   const data = useMemo(() => employeesData, [employeesData])
-  console.log(data)
 
   return (
     <Styles>

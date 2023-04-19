@@ -1,57 +1,11 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
-import styled from 'styled-components'
 import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 
 import { TbCircleArrowDownFilled, TbCircleArrowUpFilled } from 'react-icons/tb'
 
-const Styles = styled.div`
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
-    border-radius: 5px;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.6rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
-  .pagination {
-    padding: 1rem;
-  }
-  .search-bar input {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-  }
-  .arrowIcon {
-    margin-left: 0.5rem;
-    width: 20px;
-    height: 20px;
-    vertical-align: text-top;
-  }
-`
+import './datatable.css'
 
 function Table({ columns, data }) {
   const {
@@ -232,9 +186,9 @@ function DataTable() {
   const data = useMemo(() => employeesData, [employeesData])
 
   return (
-    <Styles>
+    <div className="data-table">
       <Table columns={columns} data={data} />
-    </Styles>
+    </div>
   )
 }
 

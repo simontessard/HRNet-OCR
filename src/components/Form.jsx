@@ -152,19 +152,20 @@ function Form() {
           )}
         </Modal>
         <Column>
-          <label>First Name</label>
+          <label htmlFor="firstName">First Name</label>
           <StyledInput ref={firstName} type="text" id="firstName" required />
-          <label>Last Name</label>
+          <label htmlFor="lastName">Last Name</label>
           <StyledInput ref={LastName} type="text" id="lastName" required />
-          <label>Birthday</label>
+          <label htmlFor="birthday">Birthday</label>
           <StyledDatePicker
             showMonthDropdown
             showYearDropdown
             selected={birthday}
             onChange={(date) => setBirthday(date)}
             required
+            id="birthday"
           />
-          <label>Start date</label>
+          <label htmlFor="startDate">Start date</label>
           <StyledDatePicker
             showMonthDropdown
             showYearDropdown
@@ -172,6 +173,7 @@ function Form() {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             required
+            id="startDate"
           />
           <label htmlFor="department">Department</label>
           <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />

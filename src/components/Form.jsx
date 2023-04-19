@@ -99,6 +99,7 @@ function Form() {
   const [department, setDepartment] = useState(null)
 
   const [openModal, setOpenModal] = useState(false)
+  console.log(openModal)
 
   const stateOptions = states.map((state) => ({
     label: state.name,
@@ -132,6 +133,8 @@ function Form() {
 
   const handleFormReset = (e) => {
     e.target.reset()
+    setBirthday(null)
+    setStartDate(null)
   }
 
   return (

@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.75rem;
+  padding: 0.5rem;
+}
+
+.navlink-header {
+  text-decoration: none;
+  color: black;
+}
+
+.logo-header {
+  font-size: 2rem;
+  background-color: #52c0db;
+  border-radius: 25px;
+  margin-right: 0.75rem;
+}

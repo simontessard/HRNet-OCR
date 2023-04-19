@@ -50,6 +50,8 @@ const StyledInput = styled.input`
 const SubmitButton = styled.input`
   background-color: green;
   color: white;
+  font-weight: 600;
+  font-size: 1rem;
   border-radius: 5px;
   padding: 1.5rem 4rem;
   cursor: pointer;
@@ -82,7 +84,7 @@ const ButtonsContainer = styled.div`
 `
 
 const ResetButton = styled(SubmitButton)`
-  background-color: red;
+  background-color: #d60202;
 `
 
 function Form() {

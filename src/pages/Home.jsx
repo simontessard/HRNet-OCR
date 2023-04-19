@@ -8,7 +8,7 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 `
 
 const FormContainer = styled.div`

@@ -1,11 +1,12 @@
 import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 import { TbCircleArrowDownFilled, TbCircleArrowUpFilled } from 'react-icons/tb'
+import React from 'react'
 
 import SearchBar from '../SearchBar/SearchBar'
 
 import './table.css'
 
-export function Table({ columns, data }) {
+export const Table = React.memo(({ columns, data }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -118,4 +119,4 @@ export function Table({ columns, data }) {
       </div>
     </>
   )
-}
+})

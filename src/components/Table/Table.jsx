@@ -1,6 +1,8 @@
 import { useTable, usePagination, useSortBy, useGlobalFilter } from 'react-table'
 import { TbCircleArrowDownFilled, TbCircleArrowUpFilled } from 'react-icons/tb'
 
+import SearchBar from '../SearchBar/SearchBar'
+
 import './table.css'
 
 export function Table({ columns, data }) {
@@ -33,14 +35,7 @@ export function Table({ columns, data }) {
 
   return (
     <>
-      <div className="search-bar">
-        <input
-          type="text"
-          value={globalFilter || ''}
-          onChange={(e) => setGlobalFilter(e.target.value)} // on définit la valeur du filtre global
-          placeholder=" Search..."
-        />
-      </div>
+      <SearchBar globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

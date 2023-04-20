@@ -25,19 +25,3 @@
   border-right: 0;
 }
 
-.pagination {
-  padding: 1rem;
-}
-
-.search-bar input {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-.arrowIcon {
-    margin-left: 0.5rem;
-    width: 20px;
-    height: 20px;
-    vertical-align: text-top;
-}

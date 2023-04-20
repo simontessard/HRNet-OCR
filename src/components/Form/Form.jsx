@@ -1,8 +1,6 @@
-import React, { useState, useRef } from 'react'
-import DatePicker from 'react-datepicker'
+import React, { useState, useRef, lazy, Suspense } from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import { states, departments } from '../../data/index.js'
 
@@ -14,6 +12,9 @@ import { addEmployee } from '../../actions/employeeActions.js'
 import { Modal } from 'modal-dialog-library'
 
 import './form.css'
+
+const DatePicker = lazy(() => import('react-datepicker'))
+const Dropdown = lazy(() => import('react-dropdown'))
 
 function Form() {
   const dispatch = useDispatch()
@@ -87,28 +88,36 @@ function Form() {
           <label htmlFor="lastName">Last Name</label>
           <input ref={LastName} type="text" id="lastName" required />
           <label htmlFor="birthday">Birthday</label>
-          <DatePicker
-            className="date-picker"
-            showMonthDropdown
-            showYearDropdown
-            selected={birthday}
-            onChange={(date) => setBirthday(date)}
-            required
-            id="birthday"
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DatePicker
+              className="date-picker"
+              showMonthDropdown
+              showYearDropdown
+              selected={birthday}
+              onChange={(date) => setBirthday(date)}
+              required
+              id="birthday"
+              onFocus={() => console.log('DatePicker focused!')}
+            />
+          </Suspense>
           <label htmlFor="startDate">Start date</label>
-          <DatePicker
-            className="date-picker"
-            showMonthDropdown
-            showYearDropdown
-            todayButton="Today"
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            required
-            id="startDate"
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <DatePicker
+              className="date-picker"
+              showMonthDropdown
+              showYearDropdown
+              todayButton="Today"
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              required
+              id="startDate"
+              onFocus={() => console.log('DatePicker focused!')}
+            />
+          </Suspense>
           <label htmlFor="department">Department</label>
-          <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Dropdown options={departmentOptions} onChange={(value) => setDepartment(value)} />
+          </Suspense>
         </div>
         <fieldset>
           <legend>Address</legend>
@@ -117,7 +126,9 @@ function Form() {
           <label htmlFor="city">City</label>
           <input ref={city} id="city" type="text" required />
           <label htmlFor="state">State</label>
-          <Dropdown options={stateOptions} onChange={(value) => setState(value)} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Dropdown options={stateOptions} onChange={(value) => setState(value)} />
+          </Suspense>
           <label htmlFor="zip-code">Zip Code</label>
           <input ref={zipCode} id="zip-code" type="number" required />
         </fieldset>

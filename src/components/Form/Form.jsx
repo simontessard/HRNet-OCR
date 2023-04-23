@@ -78,7 +78,9 @@ function Form() {
           {openModal && (
             <>
               <p>Employee M. {LastName.current.value} was created !</p>
-              <button onClick={() => setOpenModal(false)}>Close</button>
+              <button className="button-close-modal" onClick={() => setOpenModal(false)}>
+                Close
+              </button>
             </>
           )}
         </Modal>

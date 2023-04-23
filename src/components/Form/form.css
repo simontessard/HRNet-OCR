@@ -70,3 +70,13 @@ form input {
 .modal-overlay {
     z-index: 10;
 }
+
+.button-close-modal {
+  padding: 8px;
+  font-size: large;
+  font-weight: 600;
+  background-color: #52c0db;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
